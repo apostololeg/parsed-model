@@ -1,0 +1,19 @@
+{
+  "name": "parsed-model",
+  "version": "1.0.0",
+  "description": "This code makes it easier to create React components from imported 3D-models. To be used in applications using react-three or react-three-renderer and Three.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apostololeg/parsed-model.git"
+  },
+  "author": "Oleg Apostol <truerenton@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apostololeg/parsed-model/issues"
+  },
+  "homepage": "https://github.com/apostololeg/parsed-model#readme"
+}

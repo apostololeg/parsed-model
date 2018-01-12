@@ -2,7 +2,7 @@ import React from 'react';
 
 // simple method that parses a Threejs material into a component (to be extended with other types of material)
 
-export default function createMaterial(material){
+export function CreateMaterial(material){
   let m;
   switch(material.type){
     case 'MeshBasicMaterial':

@@ -8,7 +8,7 @@ This code makes it easier to create React components from imported 3D-models. To
 
 ### ParsedModel
 
-```
+```js
   let model = new ParsedModel();
   model.load('path/to/model').then(
     function resolve(m){
@@ -18,16 +18,15 @@ This code makes it easier to create React components from imported 3D-models. To
       console.error('error:', e);
     }
   );
-
 ```
 
 If your application does not need to be able to load Collada files you can uncomment the lines:
 
-```
+```js
 import ColladaLoader from './ColladaLoader';
 ```
 and in the constructor:
-```
+```js
 this._colladaLoader = new THREE.ColladaLoader();
 ```
 
@@ -35,7 +34,7 @@ this._colladaLoader = new THREE.ColladaLoader();
 #### constructor
 You can pass an optional settings object to the constructor:
 
-```
+```js
   let model = new ParsedModel({
     scale: 1,
     rotation: new THREE.Quaternion()
@@ -76,7 +75,7 @@ After you have loaded or parsed an external 3D model, an instance of `ParsedMode
 
 ### Rendering a 3D model with React
 Example with react-three using the merged geometry and the multi-material:
-```
+```js
   let geometry = this.props.parsedModel.mergedGeometry;
   let material = this.props.parsedModel.material;
   return(
@@ -92,7 +91,7 @@ Example with react-three using the merged geometry and the multi-material:
 
 Currently multi-materials are not yet supported in react-three-renderer so we need a bit more code here:
 
-```
+```js
   let meshes = [];
   let geometries = this.props.parsedModel.geometries;
   let materialsArray = this.props.parsedModel.materialsArray;

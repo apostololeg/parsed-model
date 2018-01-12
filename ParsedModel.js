@@ -1,12 +1,9 @@
 import THREE from 'three';
-import ColladaLoader from './ColladaLoader';
 
-export default class ParsedModel{
-
+export class ParsedModel {
   constructor(settings){
-    this._colladaLoader = new THREE.ColladaLoader();
     this._objectLoader = new THREE.ObjectLoader();
-    this._parseSettings(settings || {});
+    this._parseSettings(serttings || {});
   }
 
   _parseSettings(settings){
@@ -73,10 +70,6 @@ export default class ParsedModel{
     let type = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
 
     switch(type){
-      case 'dae':
-      case 'collada':
-        p = this.loadCollada(url);
-        break;
       case 'json':
         p = this.loadJSON(url);
         break;
@@ -86,29 +79,6 @@ export default class ParsedModel{
         });
     }
     return p;
-  }
-
-  loadCollada(url, settings){
-    if(typeof settings !== 'undefined'){
-      this._parseSettings(settings);
-    }
-
-    return new Promise((resolve, reject) => {
-      this._colladaLoader.load(
-        url,
-        // success callback
-        (data) => {
-          this.parse(data.scene);
-          resolve();
-        },
-        // progress callback
-        () => {},
-        // error callback
-        (error) => {
-          reject(error);
-        }
-      );
-    });
   }
 
   loadJSON(url, settings){
